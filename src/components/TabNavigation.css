@@ -1,0 +1,27 @@
+.tab-navigation {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.tab-navigation__tab {
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-navigation__tab:hover {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.tab-navigation__tab--active {
+  background-color: var(--accent);
+  color: #fff;
+}
