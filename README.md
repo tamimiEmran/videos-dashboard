@@ -1,30 +1,23 @@
-# Videos Dashboard
+# Video Review Dashboard
 
-A lightweight frontend scaffold for reviewing and tagging videos. The application is structured to support three primary
-workspaces:
-
-- **Review & Tag** – Play MP4 videos, toggle configurable tag categories, and jot down contextual notes.
-- **Analysis** – Reserved for future reporting on tag usage trends.
-- **Video Library** – Placeholder for upcoming filtering and discovery tools.
+A self-contained HTML, CSS, and JavaScript dashboard for reviewing and tagging MP4 videos. The interface mirrors the original
+React prototype but now runs without any build tooling or package dependencies.
 
 ## Getting started
 
-```bash
-npm install
-npm run dev
-```
+Open `index.html` in your browser. All behaviour is implemented with vanilla JavaScript in `app.js` and the layout is styled by
+`styles.css`.
 
-Then open the printed local URL in your browser. By default the dev server runs on [http://localhost:5173](http://localhost:5173).
+## Customisation
 
-## Configuration
+- Update the video metadata in `app.js` by editing the `RAW_VIDEOS` array. Each item supports `filename`, `src`, `poster`,
+  `title`, and `description` fields.
+- Adjust tag categories inside `app.js` by modifying the `TAG_CATEGORIES` array. Tags toggleable by reviewers update in real time
+  in the interface.
+- The layout and theme tokens live in `styles.css`. Tweak the CSS variables at the top of the file to update the colour palette
+  and typography.
 
-- Tag categories live in `src/data/tagCategories.js`.
-- Seed video metadata is located in `src/data/videos.js`. Replace the `src` values with actual `.mp4` assets reachable by the browser. Video entries that follow the `m002-20250917-1758079317_video.mp4` naming convention will automatically surface a read-only "Capture Time" tag based on the hour and minute extracted from the filename.
+## Roadmap placeholders
 
-## Tech stack
-
-- [Vite](https://vitejs.dev/) for local development.
-- [React 18](https://react.dev/) for the component architecture.
-
-This project intentionally ships without persistent storage or routing. Layer in your preferred data layer and API hooks as
-those features come online.
+- **Analysis** – Reserved for charting tag usage, reviewer activity, and other insights once a data layer is available.
+- **Video Library** – Intended for search and filtering experiences built on top of saved tags and metadata.
