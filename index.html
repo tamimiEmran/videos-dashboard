@@ -3,11 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Videos Dashboard</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Video Review Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="app-shell">
+      <header class="app-shell__header">
+        <h1>Video Review Dashboard</h1>
+        <p>Tag and manage your content library with an extensible review workflow.</p>
+      </header>
+      <main class="app-shell__main">
+        <nav class="tab-navigation" aria-label="Workspace tabs">
+          <button type="button" class="tab-navigation__tab tab-navigation__tab--active" data-tab="review">
+            Review &amp; Tag
+          </button>
+          <button type="button" class="tab-navigation__tab" data-tab="analysis">Analysis</button>
+          <button type="button" class="tab-navigation__tab" data-tab="library">Video Library</button>
+        </nav>
+        <section class="app-shell__content" aria-live="polite">
+          <div class="tab-panel" data-tab-panel="review">
+            <div class="grid-layout">
+              <div class="grid-layout__primary">
+                <div class="video-selector">
+                  <label for="video-select">Select video</label>
+                  <select id="video-select" aria-label="Available videos"></select>
+                  <div class="video-selector__actions">
+                    <button type="button" id="prev-video">◀ Previous</button>
+                    <button type="button" id="next-video">Next ▶</button>
+                  </div>
+                  <p class="video-selector__description" id="video-description"></p>
+                </div>
+                <div class="video-player video-player--empty" id="video-player">
+                  <p>Select a video to begin reviewing.</p>
+                </div>
+                <div class="notes-panel">
+                  <label for="notes">Notes</label>
+                  <textarea
+                    id="notes"
+                    placeholder="Add any context or additional information here."
+                    aria-label="Reviewer notes"
+                  ></textarea>
+                </div>
+              </div>
+              <aside class="grid-layout__sidebar">
+                <div class="tags-panel">
+                  <h2>Tag categories</h2>
+                  <p class="tags-panel__hint">
+                    Toggle tags to describe the video. Categories are configured directly in <code>app.js</code>.
+                  </p>
+                  <div class="tags-panel__list" id="tag-categories"></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <div class="tab-panel" data-tab-panel="analysis" hidden>
+            <div class="placeholder">
+              <h2>Analysis workspace</h2>
+              <p>
+                This area will surface insights from the collected tags such as usage frequency, correlations, and reviewer
+                activity. Wire analytics components into this tab when the data layer is ready.
+              </p>
+            </div>
+          </div>
+          <div class="tab-panel" data-tab-panel="library" hidden>
+            <div class="placeholder">
+              <h2>Video library and filters</h2>
+              <p>
+                Use this area to search, filter, and queue videos based on their tags. Implement filtering controls and result
+                lists once tagging data is persisted.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js" defer></script>
   </body>
 </html>
